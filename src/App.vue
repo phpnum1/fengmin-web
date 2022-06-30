@@ -19,28 +19,13 @@
         </div>
       </div>
       <div class="menu">
-        <!-- <el-menu
-          :default-active="defaultActive"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-          :router="router"
-        >
-          <el-menu-item index="/">首页</el-menu-item>
-          <el-menu-item index="/1">关于我们</el-menu-item>
-          <el-menu-item index="/2">产品中心</el-menu-item>
-          <el-menu-item index="/3">工程案例</el-menu-item>
-          <el-menu-item index="/4">新闻中心</el-menu-item>
-          <el-menu-item index="/5">联系我们</el-menu-item>
-          <el-menu-item index="1">处理中心</el-menu-item>
-        </el-menu> -->
         <el-menu
           :default-active="activeIndex"
           class="el-menu-demo"
           mode="horizontal"
           background-color="#236e2b"
           active-background-color="f0f"
-          menu-trigger="click"
+          menu-trigger="hover"
           text-color="#fff"
           active-text-color="#fff"
           @select="handleSelect"
@@ -78,40 +63,31 @@
         </el-menu>
       </div>
     </div>
-    <el-main>
+    <div class="page-content">
       <router-view />
-    </el-main>
-    <div class="footer" v-show="isShow">
-      <div class="footer-content">
-        <ul class="content-nav">
-          <li>
-            <p>走进科建</p>
-            <span>发展历程</span>
-            <span>企业文化</span>
-            <span>资质荣誉</span>
-            <span>合作伙伴</span>
-          </li>
-          <li>
-            <p>新闻资讯</p>
-            <span>公司新闻</span>
-            <span>行业动态</span>
-          </li>
-          <li>
-            <p>产品中心</p>
-            <span>介绍视频</span>
-            <span>管理模式</span>
-            <span>平台目标</span>
-            <span>功能模块</span>
-          </li>
-          <li>
-            <p>联系我们</p>
-            <span>邮箱</span>
-            <span>电话</span>
-          </li>
-        </ul>
+    </div>
+    <div class="footer">
+      <div class="footer-top">
+        <span>首页</span>
+        <span>关于我们</span>
+        <span>产品中心</span>
+        <span>工程案例</span>
+        <span>新闻中心</span>
+        <span>联系我们</span>
       </div>
-      <div class="copyright">
-        <span>版权所有</span>
+      <div class="footer-bottom">
+        <div class="text">
+          地址：宁波市镇海区骆驼工业区&nbsp; &nbsp;
+          宁波水立净环保科技有限公司版权所有 &nbsp;备案号：
+          <a href="http://beian.miit.gov.cn" target="_blank">
+            浙ICP备15004459号-1</a
+          >
+          &nbsp;&nbsp; &nbsp;技术支持：仁人部落（中国）
+        </div>
+        <div class="text">
+          热推产品&nbsp;&nbsp;|&nbsp;&nbsp;主营区域： 江苏 上海 浙江 宁波 常熟
+          苏州
+        </div>
       </div>
     </div>
   </div>
@@ -204,7 +180,9 @@ body {
     align-items: center;
     .el-menu-demo {
       height: 40px;
+      border: none;
       li {
+        border: none;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -220,6 +198,7 @@ body {
           display: none;
         }
         .el-submenu__title {
+          border: none;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -239,51 +218,42 @@ body {
 .el-main {
   padding: 0 !important;
 }
-
+.page-content {
+  min-height: 800px;
+}
 .footer {
   width: 100%;
-  height: 216px;
-  overflow: hidden;
-  background-color: #14679f;
-  &-content {
-    width: 1240px;
-    margin: 0 auto;
-    padding-top: 20px;
+  .footer-top {
+    width: 100%;
+    background-color: #2f2f2f;
     display: flex;
-    justify-content: space-between;
-    .content-nav {
-      display: flex;
-      justify-content: space-around;
-      li {
-        display: flex;
-        flex-direction: column;
-        padding: 0 20px;
-        //justify-content: center;
-        align-items: flex-start;
-        p {
-          font-size: 20px;
-          color: #d4edff;
-          padding: 10px 0;
-        }
-        span {
-          color: #f7f7f7;
-          font-weight: 300;
-          padding: 5px 0;
-        }
-      }
-    }
-    img {
-      width: 170px;
-      height: 170px;
-      padding: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    span {
+      // height: 21px;
+      display: block;
+      padding: 0 10px;
+      font-size: 16px;
+      color: #fff;
+      border-right: 1px solid #fff;
     }
   }
-  .copyright {
-    height: 30px;
-    background: #125688;
-    span {
+  .footer-bottom {
+    width: 100%;
+    background-color: #464646;
+    height: 96px;
+    overflow: hidden;
+    .text {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: #fff;
-      line-height: 30px;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -295,7 +265,7 @@ body {
   ul {
     width: 124px;
     padding: 0 !important;
-    margin-top: -5px !important;
+    margin-top: 0px !important;
     box-shadow: none !important;
     background-color: #4e4c4c !important;
   }
